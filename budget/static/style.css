@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .menu {
+    border-radius: 25px;
+    float: left;
+    width: 20%;
+    text-align: center;
+  }
+  
+  .menu a {
+    border-radius: 25px;
+    background-color: #b7fff3;
+    padding: 8px;
+    margin-top: 7px;
+    display: block;
+    width: 100%;
+    color: black;
+  }
+  
+  .main {
+    float: left;
+    width: 60%;
+    padding: 0 20px;
+  }
+  
+  .right {
+    border-radius: 25px;
+    background-color: #b7fff3;
+    float: left;
+    width: 20%;
+    padding: 15px;
+    margin-top: 7px;
+    text-align: center;
+  }
+  .balance {
+    
+    background-color: #336d27;
+    float: left;
+    width: 100%;
+    padding: 15px;
+    margin-top: 7px;
+    text-align: center;
+    color : #ffffff
+  }
+  .transaction {
+    border-radius: 25px;
+    background-color: #b7fff3;
+    float: left;
+    width: 100%;
+    padding: 15px;
+    margin-top: 7px;
+    text-align: center;
+  }
+
+  table, td, th {
+    border: 1px solid;
+    text-align: center;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    
+  }
+
+
+  @media only screen and (max-width: 620px) {
+    /* For mobile phones: */
+    .menu, .main, .right {
+      width: 100%;
+    }
+  }

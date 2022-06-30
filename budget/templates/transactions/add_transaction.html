@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% block content %}
+
+
+<form action="{% url 'add-transaction' %}" method="post">
+    {% csrf_token %}
+    <div class="transaction">
+      <label for="">Amount</label>
+      <input
+        type="text"
+        name="amount"
+        value="{{values.amount}}"
+      />
+    </div>
+
+    <div class="transaction">
+      <label for="">Description</label>
+      <input
+        type="text"
+        name="name"
+        value="{{values.name}}"
+      />
+    </div>
+    <div class="transaction">
+      <label for="">Category</label>
+      <select name="category">
+        {% for category in categories%}
+        <option name="category" value="{{category.name}}"
+          >{{category.name}}</option
+        >
+
+        {% endfor %}
+      </select>
+    </div>
+    <div class="transaction">
+      <label for="">Date of Transaction</label>
+      <input
+        type="date"
+        name="transaction_date"
+      />
+    </div>
+    <div class="transaction">
+    <input
+      type="submit"
+      value="Submit"
+    />
+  </div>
+  </form>
+
+{% endblock %}
+<div class = "right">
+  {% block contentright %}</div>
+  {% endblock %}

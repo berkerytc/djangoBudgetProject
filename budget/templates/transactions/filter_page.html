@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<form action="{% url 'filter-page' %}" method="post">
+  {% csrf_token %}
+  <div class = "transaction">
+    <label for="">Category</label><br>
+    <select name="category">
+      <option name="category" value="{{category.name}}"
+        >All Categories</option
+      >
+      {% for category in categories%}
+      <option name="category" value="{{category.name}}"
+        >{{category.name}}</option
+      >
+      {% endfor %}
+
+    </select></div>
+<br>
+  <div class = "transaction">
+      <label for="">Date of Transaction</label><br>
+      From:
+      <input
+        type="date"
+        name="date1"
+      />
+      To:
+      <input
+        type="date"
+        name="date2"
+      /></div>
+<br><div class = "transaction">
+  <input
+    type="submit"
+    value="Filter"
+  /></div>
+</form>
+
+<table>
+  <tr>
+      <th>Amount</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th>Date</th>
+      <th>Action</th>
+    </tr>
+  {% for transaction in ftransactions %}
+  <tr>
+    <td>{{transaction.amount}}$</td>
+    <td>{{transaction.name}}</td>
+    <td>{{transaction.category}}</td>
+    <td>{{transaction.date}}</td>
+    <td><a href="{% url 'delete-transaction' transaction.id %}">
+        &#10060; </a>
+    <a href="{% url 'edit-transaction' transaction.id %}">
+        &#9998; </a></td>
+</tr>
+  {%  endfor %}
+</table>
+
+{% endblock %}
+<div class = "right">
+{% block contentright %}</div>
+{% endblock %}

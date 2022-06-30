@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class = "balance">
+BALANCE: {{balance}}$
+</div>
+
+
+<div class = "transaction">
+<a href="{% url 'add-transaction' %}">
+    Add Transaction </a>
+</div>
+
+<table>
+    <tr>
+        <th>Amount</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Action</th>
+      </tr>
+    {% for transaction in transactions %}
+    <tr>
+        <td>{{transaction.amount}}$</td>
+        <td>{{transaction.name}}</td>
+        <td>{{transaction.category}}</td>
+        <td>{{transaction.date}}</td>
+        <td><a href="{% url 'delete-transaction' transaction.id %}">
+            &#10060; </a>
+        <a href="{% url 'edit-transaction' transaction.id %}">
+            &#9998; </a></td>
+    </tr>
+    {%  endfor %}
+</table>
+
+{% endblock %}
+
+<div class = "right">
+{% block contentright %}
+
+
+<a href="{% url 'filter-page' %}">
+    Filter Transaction </a><br><br>
+</div>
+{% endblock %}
+
+
